@@ -49,8 +49,10 @@ def decrypt_file_vigenere(input_file, output_file, key):
 # Шифр Виженера
 input_file = 'files/input.txt'
 output_file = 'files/encrypted_vigenere.txt'
-key = 'key'
+key = input("Enter key for Vigenere: ")
 
 encrypt_file_vigenere(input_file, output_file, key)
 
 decrypt_file_vigenere(output_file, 'files/decrypted_vigenere.txt', key)
+
+print("Done")

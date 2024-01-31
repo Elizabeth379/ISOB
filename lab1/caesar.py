@@ -2,7 +2,7 @@ def caesar_cipher_encrypt(text, shift):
     encrypted_text = ''
     for char in text:
         if char.isalpha():
-            shifted = ord(char) + shift
+            shifted = ord(char) + (shift % 26)
             if char.islower():
                 if shifted > ord('z'):
                     shifted -= 26
@@ -17,6 +17,7 @@ def caesar_cipher_encrypt(text, shift):
         else:
             encrypted_text += char
     return encrypted_text
+
 
 
 def caesar_cipher_decrypt(encrypted_text, shift):
@@ -41,8 +42,17 @@ def decrypt_file_caesar(input_file, output_file, shift):
 # Шифр Цезаря
 input_file = 'files/input.txt'
 output_file = 'files/encrypted_caesar.txt'
-shift = 4
+
+while True:
+    shift = input("Enter shift for Caesar: ")
+    try:
+        shift=int(shift)
+        break
+    except ValueError:
+        print("Error: enter correct number")
 
 encrypt_file_caesar(input_file, output_file, shift)
 
 decrypt_file_caesar(output_file, 'files/decrypted_caesar.txt', shift)
+
+print("Done!")
