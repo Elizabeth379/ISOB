@@ -235,7 +235,7 @@ class Des():
 
 if __name__ == '__main__':
     key = "secret_k"
-    text = "Hello wo"
+    text = "Cute cat"
     d = Des()
     r = d.encrypt(key, text)
     r2 = d.decrypt(key, r)
