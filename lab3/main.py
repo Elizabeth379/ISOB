@@ -246,10 +246,10 @@ def run_attacks():
     server1 = Member(321, 3)
     server2 = HackerMember(231, 2)
 
-    tcpResetMiddleware = TcpResetMiddleware()
-    fakeIpAddressMiddleware = FakeIpAddressMiddleware(231, 2)
-    rstMiddleware = RSTMiddleware()
-    connectionHijack = ConnectionHijack()
+    tcpResetMiddleware = TcpResetMiddleware()    #TCP Flood attack
+    fakeIpAddressMiddleware = FakeIpAddressMiddleware(231, 2) #IP-spoofing
+    rstMiddleware = RSTMiddleware()   #TCP Reset
+    connectionHijack = ConnectionHijack()  #TCP/IP hijacking
     connection = Connection([client, server1, server2], [rstMiddleware])
 
     client.callAnyOther(connection)
